@@ -3,7 +3,6 @@
 The `SimpleAlerting` extension is used to define the behavior and configuration of simple alerting systems for PHD Devices. Below is a description of the original IEEE 11073-20601 attributes, including their MDC code and the corresponding element in the extension. 
 In IEEE 11073-10206 / ACOM simple alerting can be modeled as an extension to a numeric observation with the same attributes as this FHIR extension.
 
-Note that in ACOM, the only element directly related to alerting is the observation measurement status code `msmt-value-exceeded-boundaries`. When a gateway receives an observation with this status, it can create a DeviceAlert resource (in FHIR R6) or use the SimpleAlerting extension (in FHIR R4). The sample array actual-range (lowerLimit/upperLimit) is used for scaling and graphing purposes and is NOT used for alerting.
 
 ## Alert Type
 In some cases there can be multiple types of alerts defined for a monitored value. For example in a continuous glucose monitor there can be a patient normal range low and high value and a critical hypo and hyper value. In IEEE 11073-20601 these are reported as numeric settings with MDC codes `MDC_CONC_GLU_PATIENT_THRESHOLDS_LOW_HIGH` and `MDC_CONC_GLU_THRESHOLDS_HYPO_HYPER` that reports the monitored low and high limits.
@@ -31,10 +30,10 @@ The IEEE 11073-10206 Alert Operational Text attribute consists of a pair of stri
 The `alertOperationalText` element provides a single human-readable string describing the operational state of the lower and upper threshold monitoring.
 
 ## Threshold Notification Text
-The IEEE 11073-10206 Threshold-Notification-Text-String attribute provides a human-readable string notifying the user of a value outside the current limits. It may include details about the code that triggered the alert or instructions for responding to it. The MDC code is `MDC_ATTR_THRES_NOTIF_TEXT_STRING`
+The IEEE 11073-10206 Threshold-Notification-Text-String attribute provides a human-readable string notifying the user of a value outside the current limits. It may include details about the condition that triggered the alert or instructions for responding to it. The MDC code is `MDC_ATTR_THRES_NOTIF_TEXT_STRING`
 
-The `thresholdNotificationText` element provides this notification text, ensuring that users are informed about the specific alert code and its meaning.
+The `thresholdNotificationText` element provides this notification text, ensuring that users are informed about the specific condition that caused the alert.
 
 ---
 
-These elements collectively define the configuration and behavior of the `SimpleAlerting` extension, enabling systems to monitor and respond to alerting codes effectively.
+These elements collectively define the configuration and behavior of the `SimpleAlerting` extension, enabling systems to monitor and respond to specific conditions effectively.

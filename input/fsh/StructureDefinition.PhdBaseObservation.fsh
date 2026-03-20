@@ -116,8 +116,8 @@ Description: "Common base profile with the elements that are common to the PHD I
 * dataAbsentReason.coding from http://hl7.org/fhir/ValueSet/data-absent-reason (required)
 
 * derivedFrom ^short = "A source the measurement data is derived from."
-* derivedFrom only Reference(Observation)
-  * ^definition = "Reference to another Observation resource that was used to create this Observation."
+* derivedFrom only Reference(PhdBaseObservation)
+  * ^definition = "Reference to another PHD Observation resource that was used to create this Observation."
 * hasMember ^short = "Other PHD Observations that are part of this group observation."
 * hasMember only Reference(PhdBaseObservation)
   * ^definition = "Reference to other PHD Observation resources that are part of this group observation; used for training sessions and other grouped measurements."  

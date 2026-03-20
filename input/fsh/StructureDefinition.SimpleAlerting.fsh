@@ -18,7 +18,7 @@ Context: Observation, DeviceMetric, Observation.component
   * value[x] 1..
   * value[x] only CodeableConcept
   * valueCodeableConcept ^definition = "The type of alerting system."
-  * valueCodeableConcept from http://hl7.org/fhir/uv/phd/ValueSet/MDCValueSet (required)
+  * valueCodeableConcept from http://hl7.org/fhir/uv/phd/ValueSet/MDCValueSet (extensible)
 * extension[currentLimits]
   * value[x] 1..
   * value[x] only Range
@@ -29,7 +29,7 @@ Context: Observation, DeviceMetric, Observation.component
   * value[x] 1..
   * value[x] only CodeableConcept
   * valueCodeableConcept ^definition = "The operational state of the alerting system."
-  * valueCodeableConcept from SimpleAlertOperationalStates (required)
+  * valueCodeableConcept from SimpleAlertOperationalStates (extensible)
 * extension[alertOperationalText]
   * value[x] 0..
   * value[x] only string
@@ -37,7 +37,7 @@ Context: Observation, DeviceMetric, Observation.component
 * extension[thresholdNotificationText]
   * value[x] 0..
   * value[x] only string
-  * valueString ^definition = "A human readable description of the threshold notification (DeviceAlert.code in FHIR R6)."
+  * valueString ^definition = "A human readable description of the threshold notification (DeviceAlert.label in FHIR R6)."
 Invariant: alerting-range-units
 Description: "The units used should be equal."
 * severity = #warning
