@@ -41,6 +41,7 @@ The `condition.code` element identifies the alert condition using IEEE 11073-101
 
 - **observation** (required): Reference to the source observation (PhdNumericObservation, PhdCompoundNumericObservation, or PhdCompoundObservation)
 - **component** (optional): For compound observations, identifies which specific component triggered the alert (e.g., systolic vs. diastolic blood pressure)
+- **limit** (optional): The threshold range that was exceeded. Note: ACOM (IEEE 11073-10206 Alert Communication Model) does not report limit values; the Personal Health Gateway (PHG) populates this element from device configuration or locally maintained threshold settings.
 
 This structure allows precise identification of which measurement observation caused the alert condition.
 

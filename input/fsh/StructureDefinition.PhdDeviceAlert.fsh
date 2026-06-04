@@ -15,10 +15,9 @@ Description: "Profile for device alert that capture alert conditions from person
 // ------------------------------------------------------------
 // Alert Type
 // ------------------------------------------------------------
-* condition.code from http://hl7.org/fhir/ValueSet/devicealert-condition|6.0.0-ballot3 (required)
-//* code from http://hl7.org/fhir/ValueSet/devicealert-condition|6.0.0-ballot4 (required)
+* type from http://hl7.org/fhir/uv/phd/ValueSet/MDCValueSet (required)
   * ^short = "Code for the alert condition"
-  * ^definition = "MDC nomenclature code from partition 3 indicating the alert condition being reported"
+  * ^definition = "MDC nomenclature code indicating the alert condition being reported"
   * ^comment = "The code identifies the specific alert condition from the IEEE 11073 medical device communication nomenclature."
 
 // ------------------------------------------------------------
@@ -41,7 +40,6 @@ Description: "Profile for device alert that capture alert conditions from person
   * ^short = "Reference to the observation(s) this alert is associated with"
   * ^definition = "References to the PhdNumericObservation, PhdCompoundNumericObservation, PhdCompoundObservation, or other observations that this alert condition is derived from or associated with."
   * ^comment = "The alert is now represented as a separate resource that references the source measurement observation(s) via derivedFrom. The component element can be used to identify a specific component in case of an alert on a compound observation, e.g. on systolic blood pressure in a blood pressure observation."
-//* derivedFrom.observation only Reference(PhdNumericObservation or PhdCompoundNumericObservation or PhdCompoundObservation)
 * derivedFrom only Reference(PhdNumericObservation or PhdCompoundNumericObservation or PhdCompoundObservation)
 
 // ------------------------------------------------------------
@@ -56,3 +54,4 @@ Source: PhdDeviceAlert
 * signal -> "Simple-Sa-Observed-Value.state and alert-op-text-string"
 * label -> "Simple-Sa-Observed-Value.nu-val-obs-simp-str"
 * derivedFrom -> "Associated with metric observations via logical linkage"
+// Note: limit element is not reported by ACOM (IEEE 11073-10206); populated by PHG from device configuration or local settings
